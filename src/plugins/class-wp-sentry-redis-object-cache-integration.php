@@ -27,9 +27,7 @@ final class WP_Sentry_Redis_Object_Cache_Integration {
      * WP_Sentry_Redis_Object_Cache_Integration constructor.
      */
     protected function __construct() {
-        if ( file_exists( ABSPATH . 'wp-content/plugins/redis-cache/redis-cache.php' ) && file_exists(ABSPATH . 'wp-content/object-cache.php' ) ) {
-            add_action( 'redis_object_cache_error', array( $this, 'handle_redis_cache_failure' ), 10, 2 );
-        }
+        add_action( 'redis_object_cache_error', array( $this, 'handle_redis_cache_failure' ), 10, 2 );
     }
 
     /**
